@@ -4,6 +4,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import routeGastos from "./routes/routeGastos.js";
 import dotenv from "dotenv";
 dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env
 
@@ -14,9 +15,11 @@ const app = express();
 const port = 3000;
 
 // Middlewares
+app.use(express.urlencoded({ extended: true })); // Para aceitar dados do form
 app.use(cors()); // Habilita o CORS
 app.use(express.json()); // Habilita o JSON no corpo da requisição
 app.use(express.static(path.join(__dirname, "public/client"))); // Habilita o uso de arquivos estáticos na pasta public
+app.use("/api", routeGastos); // Rotas da API de gastos
 
 // Rotas
 app.get("/", (req, res) => {
