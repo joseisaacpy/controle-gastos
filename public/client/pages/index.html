@@ -3,9 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Controle de Gastos</title>
     <!-- Tailwind -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ícones -->
+    <script
+      src="https://kit.fontawesome.com/5432a0e64c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Header -->
+    <header class="">
+      <nav
+        class="flex justify-between items-center md:justify-around bg-slate-800 text-slate-50 min-w-full min-h-[10vh] p-2"
+      >
+        <a href=""><h1 class="font-bold text-2xl md:text-3xl">DevGastos</h1></a>
+        <ul class="flex gap-2">
+          <li>
+            <a
+              class="text-2xl border shadow rounded p-1 hover:bg-slate-50 hover:text-black transition-all duration-300"
+              href="/dashboard"
+              ><i class="fa-solid fa-chart-line"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              class="text-2xl border shadow rounded p-1 hover:bg-slate-50 hover:text-black transition-all duration-300"
+              href="/cadastro"
+              ><i class="fa-solid fa-plus"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main -->
+    <main>
+      <!-- Section do form -->
+      <section class="p-4">
+        <h1 class="text-center text-3xl font-bold mb-4">Cadastrar Gasto</h1>
+        <form id="formGasto" class="flex flex-col gap-2">
+          <input
+            type="text"
+            name="descricao"
+            placeholder="Descrição"
+            class="w-full border p-2 rounded"
+            required
+          />
+          <select name="categoria" class="w-full border p-2 rounded" required>
+            <option disabled selected>Selecione uma categoria:</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Saude">Saude</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <input
+            type="number"
+            name="valor"
+            placeholder="Valor"
+            step="0.01"
+            class="w-full border p-2 rounded"
+            required
+          />
+          <input
+            type="date"
+            name="data"
+            class="w-full border p-2 rounded"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all duration-300"
+          >
+            Salvar
+          </button>
+        </form>
+      </section>
+      <!-- Section da tabela -->
+      <section class="p-1">
+        <table id="tableGastos" class="table-auto w-full">
+          <caption class="text-2xl font-bold bg-slate-800 text-slate-50">
+            Tabela de Gastos
+          </caption>
+          <thead class="bg-slate-800 text-slate-50">
+            <tr>
+              <th class="border">ID</th>
+              <th class="border">Descrição</th>
+              <th class="border">Categoria</th>
+              <th class="border">Valor</th>
+              <th class="border">Data</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="fixed bottom-0 bg-slate-800 text-slate-50 min-w-full p-4">
+      <p class="text-center">Desenvolvido por joseisaacpy</p>
+    </footer>
+  </body>
 </html>

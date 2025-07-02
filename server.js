@@ -23,7 +23,18 @@ app.use("/api", routeGastos); // Rotas da API de gastos
 
 // Rotas
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  // Manda o arquivo index.html
+  res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
+});
+// Dashboard
+app.get("/dashboard", (req, res) => {
+  // Manda o arquivo index.html
+  res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
+});
+// Formulário de cadastro e visualização
+app.get("/cadastro", (req, res) => {
+  // Manda o arquivo index.html
+  res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
 });
 
 // Inicia o servidor
