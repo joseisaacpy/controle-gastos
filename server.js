@@ -26,15 +26,11 @@ app.get("/", (req, res) => {
   // Manda o arquivo index.html
   res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
 });
+
 // Dashboard
 app.get("/dashboard", (req, res) => {
   // Manda o arquivo index.html
-  res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
-});
-// Formulário de cadastro e visualização
-app.get("/cadastro", (req, res) => {
-  // Manda o arquivo index.html
-  res.sendFile(path.join(__dirname, "public/client/pages/index.html"));
+  res.sendFile(path.join(__dirname, "public/client/pages/dashboard.html"));
 });
 
 // Inicia o servidor
