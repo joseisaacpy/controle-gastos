@@ -41,8 +41,11 @@
     <main>
       <!-- Section do form -->
       <section class="p-4">
-        <h1 class="text-center text-3xl font-bold mb-4">Cadastrar Gasto</h1>
-        <form id="formGasto" class="flex flex-col gap-2">
+        <h1 class="text-center text-2xl sm:text-3xl font-bold mb-4">
+          Cadastrar Gasto
+        </h1>
+
+        <form id="formGasto" class="flex flex-col gap-2 mx-auto max-w-2xl">
           <input
             type="text"
             name="descricao"
@@ -66,42 +69,44 @@
             class="w-full border p-2 rounded"
             required
           />
-          <input
-            type="date"
-            name="data"
-            class="w-full border p-2 rounded"
-            required
-          />
+          <input type="date" name="data" class="w-full border p-2 rounded" />
           <button
             type="submit"
             class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all duration-300"
           >
             Salvar
           </button>
+          <span id="msg" class="font-semibold text-center"></span>
         </form>
       </section>
       <!-- Section da tabela -->
       <section class="p-1">
-        <table id="tableGastos" class="table-auto w-full">
-          <caption class="text-2xl font-bold bg-slate-800 text-slate-50">
-            Tabela de Gastos
-          </caption>
-          <thead class="bg-slate-800 text-slate-50">
-            <tr>
-              <th class="border">ID</th>
-              <th class="border">Descrição</th>
-              <th class="border">Categoria</th>
-              <th class="border">Valor</th>
-              <th class="border">Data</th>
-            </tr>
-          </thead>
-          <tbody id="tbody"></tbody>
-        </table>
+        <div class="overflow-x-auto">
+          <table id="tableGastos" class="table-auto w-full">
+            <caption
+              class="text-2xl text-center p-1 rounded-t-2xl font-bold bg-slate-800 text-slate-50"
+            >
+              Tabela de Gastos
+            </caption>
+            <thead class="bg-slate-800 text-slate-50">
+              <tr>
+                <th class="border p-1">ID</th>
+                <th class="border p-1">Descrição</th>
+                <th class="border p-1">Categoria</th>
+                <th class="border p-1">Valor</th>
+                <th class="border p-1">Data</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
       </section>
     </main>
     <!-- Footer -->
     <footer class="fixed bottom-0 bg-slate-800 text-slate-50 min-w-full p-4">
       <p class="text-center">Desenvolvido por joseisaacpy</p>
     </footer>
+    <!-- JS -->
+    <script src="/js/app.js"></script>
   </body>
 </html>
