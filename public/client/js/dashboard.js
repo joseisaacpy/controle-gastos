@@ -1,3 +1,8 @@
+// Pegando os inputs de data
+const initDate = document.getElementById("initDate"); // Data de inicio
+const endDate = document.getElementById("endDate"); // Data de fim
+
+// Função pra pegar os dados da API e jogar no dashboard
 async function getInfoToDash() {
   // Spans com informações da API
   const spanTotal = document.getElementById("totalGasto");
@@ -26,6 +31,50 @@ async function getInfoToDash() {
       // Lanca um erro
       throw new Error("Erro ao buscar gastos");
     }
+    // teste
+    // Após carregar os dados da API:
+    const categorias = {};
+    gastos.forEach((g) => {
+      categorias[g.categoria] = (categorias[g.categoria] || 0) + g.valor;
+    });
+
+    // Dados do gráfico
+    const labels = Object.keys(categorias);
+    const valores = Object.values(categorias);
+
+    // Cria o gráfico
+    const ctx = document
+      .getElementById("graficoGastosCategoria")
+      .getContext("2d");
+    new Chart(ctx, {
+      type: "pie", // pode ser "pie", "line", "doughnut", etc.
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Gastos por categoria",
+            data: valores,
+            backgroundColor: [
+              "#0f172a",
+              "#1e293b",
+              "#334155",
+              "#64748b",
+              "#94a3b8",
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+        },
+      },
+    });
+
+    // fim teste
 
     // Pega o total de gastos tabulados e joga no span
     spanTabulacao.innerText = gastos.length;
